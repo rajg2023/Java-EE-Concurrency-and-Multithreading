@@ -19,7 +19,7 @@ public class BankAccountDAO {
 
 	private DataSource dataSource;
 	
-	private BankAccountDAO(DataSource dataSource) {
+	public BankAccountDAO(DataSource dataSource) {
 		
 		
 	}
@@ -68,7 +68,8 @@ public class BankAccountDAO {
 		transaction.setAmount(set.getDouble("amount"));
 		transaction.setTransDate(new Date(set.getDate("transaction_date").getTime()));
 		transaction.setTransType(set.getString("transaction_type"));
-		transaction.setTransId(set.getInt("transaction_id"));		
+		transaction.setTransId(set.getInt("transaction_id"));
+		transactions.add(transaction);
 		
 		}
 	} catch (SQLException e) {

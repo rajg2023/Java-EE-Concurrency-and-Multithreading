@@ -1,2 +1,8 @@
-com\rajivgiri\rest\JAXRSConfiguration.class
+com\rajivgiri\beans\BankAccountTransaction.class
 com\rajivgiri\rest\GreetResource.class
+com\rajivgiri\runnables\ReportsProcessor.class
+com\rajivgiri\rest\JAXRSConfiguration.class
+com\rajivgiri\rest\GreetResources.class
+com\rajivgiri\dao\BankAccountDAO.class
+com\rajivgiri\rest\ReportsResource.class
+com\rajivgiri\beans\BankAccount.class

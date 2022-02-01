@@ -28,20 +28,23 @@ public class ReportsProcessor implements Callable<Boolean>{
 	boolean reportGenerated=false;	
 	List<BankAccountTransaction> transactions = dao.getTransactionsForBankAccounts(account);
 	File file = new File("/JavaEEConcurrency/Reports" + account.getAccNumber()+"_tx_report.txt");
+	
+	try(BufferedWriter writer = new BufferedWriter(new FileWriter(file))){
 	for(BankAccountTransaction transaction:transactions) {
-		try(BufferedWriter writer = new BufferedWriter(new FileWriter(file))){
 		writer.write("Account Number: "+ transaction.getAccNUmber());
 		writer.write("Transaction Type: "+ transaction.getTransType());
 		writer.write("Transaction ID: "+ transaction.getTransId());
 		writer.write("Transaction Date: "+ transaction.getTransDate());
 		writer.write("Amount: "+ transaction.getAmount());
 		writer.newLine();
-		writer.flush();
+		
 		
 		}
-		reportGenerated=true;
+	    writer.flush();
+		
 		
 	}
+	reportGenerated=true;
 	return reportGenerated;
 	}
 	
