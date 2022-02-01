@@ -1,6 +1,7 @@
 package com.rajivgiri.rest;
 
 import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.Path;
 import javax.ws.rs.core.Application;
 
 /**
@@ -9,6 +10,7 @@ import javax.ws.rs.core.Application;
  *
  * @author airhacks.com
  */
+
 @ApplicationPath("resources")
 public class JAXRSConfiguration extends Application {
 
