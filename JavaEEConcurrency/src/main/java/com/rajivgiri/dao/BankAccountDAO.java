@@ -21,7 +21,7 @@ public class BankAccountDAO {
 	
 	public BankAccountDAO(DataSource dataSource) {
 		
-		
+		this.dataSource=dataSource;
 	}
 	
 	public List<BankAccount>getAllBankAccounts(){
@@ -52,12 +52,13 @@ public class BankAccountDAO {
 	}
 		return accounts;	
   }
- public List<BankAccountTransaction>getTransactionsForBankAccounts(BankAccount account){
+ 
+	
+	public List<BankAccountTransaction>getTransactionsForBankAccounts(BankAccount account){
 	    BankAccountTransaction transaction =null;
 		List<BankAccountTransaction>transactions = new ArrayList<>();
 		
-		try {
-			
+		try {			
 		Connection conn = dataSource.getConnection();		
 		PreparedStatement statement = conn.prepareStatement("Select * from bank_account_transaction where acc_number=?");
 		statement.setInt(1, account.getAccNumber());

@@ -8,6 +8,7 @@ public class BankAccount {
 	private int phoneNumber;
 	private String address;
 	private int zipCode;
+	private String accountType;
 	
 	
 	public int getAccNumber() {
@@ -52,7 +53,7 @@ public class BankAccount {
 	public void setAccountType(String accountType) {
 		this.accountType = accountType;
 	}
-	private String accountType;
+	
 	
 
 }

@@ -17,7 +17,6 @@ public class ReportsProcessor implements Callable<Boolean>{
 	
 	
 	public ReportsProcessor(BankAccount account, BankAccountDAO dao) {
-		super();
 		this.account = account;
 		this.dao = dao;
 	}
@@ -27,10 +26,10 @@ public class ReportsProcessor implements Callable<Boolean>{
 		// TODO Auto-generated method stub
 	boolean reportGenerated=false;	
 	List<BankAccountTransaction> transactions = dao.getTransactionsForBankAccounts(account);
-	File file = new File("/JavaEEConcurrency/Reports" + account.getAccNumber()+"_tx_report.txt");
+	File file = new File("G:\\Java EE Concurrency\\JavaEEConcurrency\\Reports" + account.getAccNumber() +"_tx_report.txt");
 	
 	try(BufferedWriter writer = new BufferedWriter(new FileWriter(file))){
-	for(BankAccountTransaction transaction:transactions) {
+	    for(BankAccountTransaction transaction:transactions) {
 		writer.write("Account Number: "+ transaction.getAccNUmber());
 		writer.write("Transaction Type: "+ transaction.getTransType());
 		writer.write("Transaction ID: "+ transaction.getTransId());
