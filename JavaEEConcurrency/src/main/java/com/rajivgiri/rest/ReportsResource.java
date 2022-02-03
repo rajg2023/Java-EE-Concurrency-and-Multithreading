@@ -54,6 +54,7 @@ public class ReportsResource {
 	@Path("/")
 	public String generateReports() {
 
+		System.out.println("service object from JNDI look up : "+ service);
 		List<BankAccount>accounts = dao.getAllBankAccounts();
 
 		for(BankAccount account:accounts) {
