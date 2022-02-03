@@ -33,7 +33,7 @@ public class BankAccountDAO {
 			
 		Connection conn = dataSource.getConnection();	
 		Statement statement = conn.createStatement();		
-		ResultSet set =statement.executeQuery("Select * from bank_account");
+		ResultSet set =statement.executeQuery("SELECT * FROM bank_account");
 		while(set.next()) {
 			account = new BankAccount();
 			account.setAccNumber(set.getInt("acc_number"));
@@ -54,13 +54,13 @@ public class BankAccountDAO {
   }
  
 	
-	public List<BankAccountTransaction>getTransactionsForBankAccounts(BankAccount account){
+	public List<BankAccountTransaction>getTransactionsForAccounts(BankAccount account){
 	    BankAccountTransaction transaction =null;
 		List<BankAccountTransaction>transactions = new ArrayList<>();
 		
 		try {			
 		Connection conn = dataSource.getConnection();		
-		PreparedStatement statement = conn.prepareStatement("Select * from bank_account_transaction where acc_number=?");
+		PreparedStatement statement = conn.prepareStatement("SELECT * FROM bank_account_transaction WHERE acc_number = ?");
 		statement.setInt(1, account.getAccNumber());
 		ResultSet set = statement.executeQuery();
 		while(set.next()) {

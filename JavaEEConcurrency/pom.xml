@@ -38,6 +38,28 @@
             <artifactId>mchange-commons-java</artifactId>
             <version>0.2.15</version>
         </dependency>
+        
+        <dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-core</artifactId>
+    <version>5.2.12.Final</version>
+        <exclusions>
+        <exclusion>
+            <artifactId>jta</artifactId>
+            <groupId>javax.transaction</groupId>
+        </exclusion>
+        <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </exclusion>
+        <exclusion>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+
+
     </dependencies>
     <build>
         <finalName>JavaEEConcurrency3</finalName>
