@@ -30,7 +30,7 @@ public class ReportsProcessor implements Callable<Boolean>{
 	
 	try(BufferedWriter writer = new BufferedWriter(new FileWriter(file))){
 	    for(BankAccountTransaction transaction:transactions) {
-		writer.write("Account Number: "+ transaction.getAccNUmber());
+		writer.write("Account Number: "+" " + transaction.getAccNUmber());
 		writer.write("Transaction Type: "+ transaction.getTransType());
 		writer.write("Transaction ID: "+ transaction.getTransId());
 		writer.write("Transaction Date: "+ transaction.getTransDate());

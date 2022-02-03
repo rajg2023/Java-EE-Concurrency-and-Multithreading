@@ -1,1 +1,1 @@
-Account Number: 1001Transaction Type: soldTransaction ID: 10000235Transaction Date: 2022-12-02Amount: 1.23456789E8
+Account Number:  1001Transaction Type: soldTransaction ID: 10000235Transaction Date: 2022-12-02Amount: 1.23456789E8
