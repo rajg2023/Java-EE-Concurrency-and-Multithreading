@@ -35,8 +35,8 @@ public class ReportsResource {
 			
 			dataSource.setJdbcUrl("jdbc:sqlserver://SQL-SERVER-NAME;databaseName=YOURDBNAME");
 			dataSource.setDriverClass("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			dataSource.setUser("root");
-			dataSource.setPassword("root");
+			dataSource.setUser("Your-Login-Info");
+			dataSource.setPassword("Your-Password-Info");
 			dao = new BankAccountDAO(dataSource);
 
 		} catch (PropertyVetoException e) {
