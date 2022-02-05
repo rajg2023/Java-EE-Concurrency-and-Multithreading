@@ -33,7 +33,7 @@ public class ReportsResource {
 		ComboPooledDataSource dataSource = new ComboPooledDataSource();
 		try {
 			
-			dataSource.setJdbcUrl("jdbc:sqlserver://SQL-SERVER-USERNAME;databaseName=YOURDBNAME");
+			dataSource.setJdbcUrl("jdbc:sqlserver://SQL-SERVER-NAME;databaseName=YOURDBNAME");
 			dataSource.setDriverClass("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			dataSource.setUser("root");
 			dataSource.setPassword("root");

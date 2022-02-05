@@ -1,15 +1,15 @@
 ### Eclipse Workspace Patch 1.0
 #P JavaEEConcurrency
 diff --git src/main/java/com/rajivgiri/rest/ReportsResource.java src/main/java/com/rajivgiri/rest/ReportsResource.java
-index 00f39b8..176a0b0 100644
+index 176a0b0..8048790 100644
 --- src/main/java/com/rajivgiri/rest/ReportsResource.java
 +++ src/main/java/com/rajivgiri/rest/ReportsResource.java
 @@ -33,7 +33,7 @@
  		ComboPooledDataSource dataSource = new ComboPooledDataSource();
  		try {
  			
--			dataSource.setJdbcUrl("jdbc:sqlserver://RAJ-WORK;databaseName=Java-SE-Concurrency-and-Multithreading-DB");
-+			dataSource.setJdbcUrl("jdbc:sqlserver://SQL-SERVER-USERNAME;databaseName=YOURDBNAME");
+-			dataSource.setJdbcUrl("jdbc:sqlserver://SQL-SERVER-USERNAME;databaseName=YOURDBNAME");
++			dataSource.setJdbcUrl("jdbc:sqlserver://SQL-SERVER-NAME;databaseName=YOURDBNAME");
  			dataSource.setDriverClass("com.microsoft.sqlserver.jdbc.SQLServerDriver");
  			dataSource.setUser("root");
  			dataSource.setPassword("root");
