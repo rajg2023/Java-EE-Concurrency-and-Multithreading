@@ -29,10 +29,10 @@ public class ReportsResource {
 		ComboPooledDataSource dataSource = new ComboPooledDataSource();
 		try {
 
-			dataSource.setJdbcUrl("jdbc:sqlserver://RAJ-WORK;databaseName=Java-SE-Concurrency-and-Multithreading-DB");
+			dataSource.setJdbcUrl("jdbc:sqlserver://Server-Name;databaseName=Database-Name");
 			dataSource.setDriverClass("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			dataSource.setUser("root");
-			dataSource.setPassword("root");
+			dataSource.setUser("Login-Name");
+			dataSource.setPassword("Login-Password");
 			dao = new BankAccountDAO(dataSource);
 
 		} catch (PropertyVetoException e) {
