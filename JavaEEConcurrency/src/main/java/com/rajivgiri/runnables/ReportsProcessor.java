@@ -10,39 +10,38 @@ import com.rajivgiri.beans.BankAccount;
 import com.rajivgiri.beans.BankAccountTransaction;
 import com.rajivgiri.dao.BankAccountDAO;
 
-public class ReportsProcessor implements Callable<Boolean>{
+public class ReportsProcessor implements Callable<Boolean> {
 
 	private BankAccount account;
 	private BankAccountDAO dao;
-	
-	
+
 	public ReportsProcessor(BankAccount account, BankAccountDAO dao) {
 		this.account = account;
 		this.dao = dao;
 	}
-	
+
 	@Override
 	public Boolean call() throws Exception {
 		// TODO Auto-generated method stub
-	boolean reportGenerated=false;	
-	List<BankAccountTransaction> transactions = dao.getTransactionsForAccounts(account);
-	File file = new File("G:/Java EE Concurrency/JavaEEConcurrency/Reports" + account.getAccNumber() + "_tx_report.txt");
-	
-	try(BufferedWriter writer = new BufferedWriter(new FileWriter(file))){
-	    for(BankAccountTransaction transaction:transactions) {
-		writer.write("Account Number: "+" " + transaction.getAccNUmber());
-		writer.write("Transaction Type: "+ transaction.getTransType());
-		writer.write("Transaction ID: "+ transaction.getTransId());
-		writer.write("Transaction Date: "+ transaction.getTransDate());
-		writer.write("Amount: "+ transaction.getAmount());
-		writer.newLine();
-		
-		
+		boolean reportGenerated = false;
+		List<BankAccountTransaction> transactions = dao.getTransactionsForAccounts(account);
+		File file = new File(
+				"G:/Java EE Concurrency/JavaEEConcurrency/Reports" + account.getAccNumber() + "_tx_report.txt");
+
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+			for (BankAccountTransaction transaction : transactions) {
+				writer.write("Account Number: " + " " + transaction.getAccNUmber());
+				writer.write("Transaction Type: " + transaction.getTransType());
+				writer.write("Transaction ID: " + transaction.getTransId());
+				writer.write("Transaction Date: " + transaction.getTransDate());
+				writer.write("Amount: " + transaction.getAmount());
+				writer.newLine();
+
+			}
+			writer.flush();
 		}
-	    writer.flush();		
+		reportGenerated = true;
+		return reportGenerated;
 	}
-	reportGenerated=true;
-	return reportGenerated;
-	}
-	
+
 }

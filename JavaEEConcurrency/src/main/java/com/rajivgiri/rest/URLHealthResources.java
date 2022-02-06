@@ -11,20 +11,20 @@ import com.rajivgiri.runnables.URLHealthProcessor;
 
 @Path("urlCheck")
 public class URLHealthResources {
-	
-	@Resource(lookup = "java:jboss/ee/concurrency/scheduler/default") 
+
+	@Resource(lookup = "java:jboss/ee/concurrency/scheduler/default")
 	private ManagedScheduledExecutorService scheduledExecutorService;
-	
+
 	@GET
 	@Path("/")
 	public String checkHealthOfApp() {
-		
-		String message = "";		
-		scheduledExecutorService.schedule(new URLHealthProcessor(),3,TimeUnit.SECONDS);
-		
-		message="Health Check Initiated";
+
+		String message = "";
+		scheduledExecutorService.schedule(new URLHealthProcessor(), 3, TimeUnit.SECONDS);
+
+		message = "Health Check Initiated";
 		return message;
-		
+
 	}
-	
+
 }

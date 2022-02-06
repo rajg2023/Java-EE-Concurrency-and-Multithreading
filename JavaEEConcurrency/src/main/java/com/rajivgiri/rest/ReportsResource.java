@@ -15,8 +15,6 @@ import com.rajivgiri.beans.BankAccount;
 import com.rajivgiri.dao.BankAccountDAO;
 import com.rajivgiri.runnables.ReportsProcessor;
 
-
-
 @Path("reports")
 public class ReportsResource {
 
@@ -26,17 +24,15 @@ public class ReportsResource {
 
 	private ManagedExecutorService service;
 
-
-
 	public ReportsResource() {
 
 		ComboPooledDataSource dataSource = new ComboPooledDataSource();
 		try {
-			
-			dataSource.setJdbcUrl("jdbc:sqlserver://SQL-SERVER-NAME;databaseName=YOURDBNAME");
+
+			dataSource.setJdbcUrl("jdbc:sqlserver://RAJ-WORK;databaseName=Java-SE-Concurrency-and-Multithreading-DB");
 			dataSource.setDriverClass("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			dataSource.setUser("Your-Login-Info");
-			dataSource.setPassword("Your-Password-Info");
+			dataSource.setUser("root");
+			dataSource.setPassword("root");
 			dao = new BankAccountDAO(dataSource);
 
 		} catch (PropertyVetoException e) {
@@ -45,8 +41,7 @@ public class ReportsResource {
 		}
 		if (dataSource != null) {
 			System.out.println("YAY we are Connected");
-			}
-
+		}
 
 	}
 
@@ -54,13 +49,13 @@ public class ReportsResource {
 	@Path("/")
 	public String generateReports() {
 
-		System.out.println("service object from JNDI look up : "+ service);
-		List<BankAccount>accounts = dao.getAllBankAccounts();
+		System.out.println("service object from JNDI look up : " + service);
+		List<BankAccount> accounts = dao.getAllBankAccounts();
 
-		for(BankAccount account:accounts) {
+		for (BankAccount account : accounts) {
 
 			try {
-			Future<Boolean>future=service.submit(new ReportsProcessor(account,dao));
+				Future<Boolean> future = service.submit(new ReportsProcessor(account, dao));
 
 				System.out.println("Report Generated ?" + future.get());
 			} catch (InterruptedException | ExecutionException e) {
@@ -71,7 +66,6 @@ public class ReportsResource {
 		}
 		return "Report generation tasks submitted!";
 	}
-
 
 	/*
 	 * public ReportsResource() {
